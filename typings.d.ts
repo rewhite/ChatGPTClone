@@ -5,6 +5,7 @@ type Chat = {
     // profilePic: string;
     // chats: {
         chatId: number;
+        version: text; //"gpt-4" : "gpt-3.5"
         messages: Array<Message>
     // }
 }

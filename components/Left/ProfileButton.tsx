@@ -115,7 +115,7 @@ export default function ProfileButton() {
             <span>Open Developer&apos;s LinkedIn</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem
+          {/* <DropdownMenuItem
             className="my-2"
             onClick={() => {
               setShowOpenAIDialog(true);
@@ -123,7 +123,7 @@ export default function ProfileButton() {
           >
             <FileKey className="mr-2 h-4 w-4" />
             <span>Edit OpenAI Key</span>
-          </DropdownMenuItem>
+          </DropdownMenuItem> */}
           <DropdownMenuItem
             className="my-2"
             onClick={() => {
@@ -141,7 +141,7 @@ export default function ProfileButton() {
             }}
           >
             <Trash2 className="mr-2 h-4 w-4" />
-            <span>Clear conversations</span>
+            <span>Clear Conversations</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

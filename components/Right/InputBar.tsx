@@ -33,7 +33,7 @@ export default function InputBar(props: {
   const llm = useLLM({ serviceUrl: "https://usellm.org/api/llm" });
 
   const searchParams = useSearchParams();
-  // const isGPT4 = searchParams.get("v") === "gpt-4"; //gpt-3 gpt-4
+  const isGPT4 = searchParams.get("v") === "gpt-4"; //gpt-3.5 gpt-4
   const router = useRouter();
 
   useEffect(() => {
@@ -54,6 +54,7 @@ export default function InputBar(props: {
       // if it's a root page, make a chat session and redirect to the chat page with textparam
       const chat: Chat = {
         chatId: new Date().getTime(),
+        version: isGPT4 ? "gpt-4" : "gpt-3.5",
         messages: [],
       };
 

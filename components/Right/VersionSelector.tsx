@@ -20,7 +20,7 @@ export default function VersionSelector() {
             className="group h-full w-full gap-1"
             value="v3"
             onClick={() => {
-              router.replace("/?v=gpt-3");
+              router.replace("/?v=gpt-3.5");
             }}
             onMouseEnter={() => {
               setHoverGPTT(true);

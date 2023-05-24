@@ -33,14 +33,14 @@ export default function ChatMessagePage(props: {
 
   return (
     <div
-      className={`flex w-full justify-center border-b border-slate-200 ${
+      className={`flex w-full justify-center items-center border-b border-slate-200 ${
         props.type === MessageType.USER ? "bg-white" : "bg-slate-100"
       }`}
     >
-      <div className="flex w-full max-w-2xl gap-5 p-10">
+      <div className="flex w-full max-w-2xl gap-5 p-10 items-center">
         {/* profile image */}
 
-        <Avatar className="h-10 w-10">
+        <Avatar className="h-10 w-10 self-start">
           {props.type === MessageType.USER ? (
             <>
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
