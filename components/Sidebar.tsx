@@ -6,7 +6,7 @@ import { Separator } from "./ui/separator";
 
 export default function Sidebar() {
   return (
-    <div className="flex flex-col px-2 h-screen w-[275px] flex-none bg-gray-800 text-white">
+    <div className="hidden md:flex flex-col px-2 h-screen w-[275px] flex-none bg-gray-800 text-white">
       <NewChatButton />
       <ChatHistory />
       <Separator />
