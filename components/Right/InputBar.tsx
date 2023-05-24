@@ -139,7 +139,7 @@ export default function InputBar(props: {
 
       <div>
         <p className="pt-2 text-center text-xs text-muted-foreground">
-          This is a replica of the ChatGPT website, powered by the OpenAI API
+          This is a replica of the ChatGPT website, powered by the ChatGPT API
           and developed by{" "}
           <Link
             href={"https://www.linkedin.com/in/hyunbangxr/"}

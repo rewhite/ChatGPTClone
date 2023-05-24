@@ -8,8 +8,6 @@ import { useChatContext } from "@/app/Context/ChatContext";
 export default function NewChatButton() {
   const router = useRouter();
 
-  const db = useChatContext();
-
   const CreateNewChat = () => {
     router.push("/");
   };
