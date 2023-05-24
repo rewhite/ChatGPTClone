@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -15,8 +16,12 @@ import {
   Trash2,
   User,
 } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useChatContext } from "@/app/Context/ChatContext";
 
 export default function ProfileButton() {
+  const db = useChatContext();
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -29,7 +34,7 @@ export default function ProfileButton() {
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
-          <span className="grow text-left text-sm">Hyun Bang</span>
+          <span className="grow text-left text-sm">{db.username}</span>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,35 @@
+"use client";
+import { Chat } from "@/typings";
 import { Button } from "../ui/button";
+import { json } from "stream/consumers";
+import { useRouter } from "next/navigation";
+import { useChatContext } from "@/app/Context/ChatContext";
 
 export default function NewChatButton() {
+  const router = useRouter();
+
+  const db = useChatContext();
+
+  const CreateNewChat = () => {
+    // // 만들지 말지 체킹하는거 넣긴 해야함
+    // 만들고
+    const chat: Chat = {
+      chatId: new Date().getTime(),
+      messages: [],
+    };
+
+    const tempChat = { ...db.chats };
+    tempChat[chat.chatId] = chat;
+    db.updateChats(tempChat);
+
+    router.push(`/chat/${chat.chatId}`);
+  };
+
   return (
     <Button
       variant="outline"
       className="my-2 justify-start gap-3 py-6 text-sm font-normal"
+      onClick={CreateNewChat}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
