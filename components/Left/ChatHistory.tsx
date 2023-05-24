@@ -31,13 +31,18 @@ export default function ChatHistory() {
     <div className="flex-1 overflow-y-hidden hover:overflow-y-auto">
       <p className="px-4 pt-2 text-xs text-slate-400">History</p>
       {chatsArray.map((chat) => (
-        <Cell key={chat.chatId} chatId={chat.chatId} messages={chat.messages} />
+        <Cell
+          key={chat.chatId}
+          chatId={chat.chatId}
+          messages={chat.messages}
+          version={chat.version}
+        />
       ))}
     </div>
   );
 }
 
-const Cell: FunctionComponent<Chat> = ({ chatId, messages }) => {
+const Cell: FunctionComponent<Chat> = ({ chatId, messages, version }) => {
   const router = useRouter();
   const pathname = usePathname();
 
