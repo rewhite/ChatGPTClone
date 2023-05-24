@@ -5,16 +5,6 @@ import ProfileButton from "./Left/ProfileButton";
 import { Separator } from "./ui/separator";
 
 export default function Sidebar() {
-  // const [chatHistory, setChatHistory] = useState([]);
-
-  // useEffect(() => {
-  //   setChatHistory(localStorage.chats ?? []);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.chats = chatHistory;
-  // }, [chatHistory]);
-
   return (
     <div className="flex flex-col px-2 h-screen w-[275px] flex-none bg-gray-800 text-white">
       <NewChatButton />

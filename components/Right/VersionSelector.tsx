@@ -1,16 +1,41 @@
+"user client";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Card, CardDescription, CardHeader, CardTitle } from "../ui/card";
+import { useState } from "react";
 
 export default function VersionSelector() {
+  const router = useRouter();
+  const [hoverGPTF, setHoverGPTF] = useState(false);
+  const [hoverGPTT, setHoverGPTT] = useState(false);
+
+  const params = useSearchParams();
+  const isGPTF = params.get("v") == "gpt-4" ? true : false;
+
   return (
-    <div className=" flex w-full flex-col place-items-center justify-center gap-2 p-4 ">
-      <Tabs defaultValue="account" className="h-[50px] w-[300px]">
+    <div className=" flex w-full flex-col place-items-center justify-center gap-2 p-4 relative">
+      <Tabs defaultValue="v3" className="h-[50px] w-[300px]">
         <TabsList className="h-full w-full">
-          <TabsTrigger className="group h-full w-full gap-1" value="account">
+          <TabsTrigger
+            className="group h-full w-full gap-1"
+            value="v3"
+            onClick={() => {
+              router.replace("/?v=gpt-3");
+            }}
+            onMouseEnter={() => {
+              setHoverGPTT(true);
+            }}
+            onMouseLeave={() => {
+              setHoverGPTT(false);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-4 w-4 fill-slate-400 group-hover:fill-slate-800 group-focus:fill-teal-400"
+              className={`h-4 w-4 ${
+                !isGPTF ? "fill-teal-400" : "fill-slate-400"
+              } group-hover:fill-slate-800 group-focus:fill-teal-400`}
             >
               <path
                 fillRule="evenodd"
@@ -20,12 +45,26 @@ export default function VersionSelector() {
             </svg>
             <span className="group-hover:text-slate-800">GPT 3.5</span>
           </TabsTrigger>
-          <TabsTrigger className="group h-full w-full gap-1" value="password">
+          <TabsTrigger
+            className="group h-full w-full gap-1"
+            value="v4"
+            onClick={() => {
+              router.replace("/?v=gpt-4");
+            }}
+            onMouseEnter={() => {
+              setHoverGPTF(true);
+            }}
+            onMouseLeave={() => {
+              setHoverGPTF(false);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="h-4 w-4 fill-slate-400 group-hover:fill-slate-800 group-focus:fill-purple-400"
+              className={`h-4 w-4 ${
+                isGPTF ? "fill-purple-400" : "fill-slate-400"
+              } fill-slate-400 group-hover:fill-slate-800 group-focus:fill-purple-400`}
             >
               <path
                 fillRule="evenodd"
@@ -41,16 +80,27 @@ export default function VersionSelector() {
           </TabsContent>
         <TabsContent value="password">Change your password here.</TabsContent> */}
       </Tabs>
-      {/* <Card className="w-[300px]">
+
+      {(hoverGPTF || hoverGPTT) && (
+        <Card
+          className={`w-[300px] absolute ${
+            hoverGPTF ? "-bottom-[127px]" : "-bottom-[103px]"
+          }`}
+        >
           <CardHeader className="p-5">
             <CardTitle className="text-base">
-              Our fastest model. Great for most every tasks.
+              {hoverGPTF
+                ? "Our most capable model, great for tasks that require creativity and advanced reasoning."
+                : "Our fastest model. Great for most every tasks."}
             </CardTitle>
             <CardDescription className="text-xs">
-              Available to Free and Plus users
+              {hoverGPTF
+                ? "Currently not supported."
+                : "Available to Free and Plus users"}
             </CardDescription>
           </CardHeader>
-        </Card> */}
+        </Card>
+      )}
     </div>
   );
 }

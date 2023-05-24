@@ -16,6 +16,7 @@ interface ChatContextProviderProps {
   updateProfilePic: (url: string) => void; //Dispatch<SetStateAction<string>>;
   chats: { [key: string]: Chat };
   updateChats: (chats: { [key: string]: Chat }) => void; //Dispatch<SetStateAction<{ [key: string]: Message[] }>>;
+  clearData: () => void;
 }
 
 const ChatContext = createContext<ChatContextProviderProps>({
@@ -25,6 +26,7 @@ const ChatContext = createContext<ChatContextProviderProps>({
   updateProfilePic: (url: string) => {},
   chats: {},
   updateChats: (chats: { [key: string]: Chat }) => {},
+  clearData: () => {},
 });
 
 export const useChatContext = () => useContext(ChatContext);
@@ -79,6 +81,13 @@ export const ChatContextProvider = ({
     localStorage.setItem("chats", JSON.stringify(chats));
   };
 
+  const clearData = () => {
+    setUsername("Guest");
+    setProfilePic("");
+    setChats({});
+    localStorage.clear();
+  };
+
   return (
     <ChatContext.Provider
       value={{
@@ -88,6 +97,7 @@ export const ChatContextProvider = ({
         updateProfilePic,
         chats,
         updateChats,
+        clearData,
       }}
     >
       {children}

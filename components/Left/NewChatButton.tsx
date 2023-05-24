@@ -11,18 +11,7 @@ export default function NewChatButton() {
   const db = useChatContext();
 
   const CreateNewChat = () => {
-    // // 만들지 말지 체킹하는거 넣긴 해야함
-    // 만들고
-    const chat: Chat = {
-      chatId: new Date().getTime(),
-      messages: [],
-    };
-
-    const tempChat = { ...db.chats };
-    tempChat[chat.chatId] = chat;
-    db.updateChats(tempChat);
-
-    router.push(`/chat/${chat.chatId}`);
+    router.push("/");
   };
 
   return (
