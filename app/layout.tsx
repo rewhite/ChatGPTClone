@@ -25,7 +25,7 @@ export default function RootLayout({
             <TopMenuBar />
             <div className="relative md:flex">
               <Sidebar />
-              <div className="h-screen w-screen">{children}</div>
+              <div className="w-full h-my-screen">{children}</div>
             </div>
           </SidebarContextProvider>
         </ChatContextProvider>
