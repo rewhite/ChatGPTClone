@@ -70,7 +70,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen pt-10 md:pt-0">
       {!!chat &&
       chat.messages.length + tempUserText.length + tempAIText.length > 0 ? (
         <div

@@ -8,6 +8,7 @@ import { useChatContext } from "@/app/Context/ChatContext";
 import dayjs from "dayjs";
 import relativetime from "dayjs/plugin/relativeTime";
 import duration from "dayjs/plugin/duration";
+import { useSidebarContext } from "@/app/Context/SidebarContext";
 dayjs.extend(duration);
 dayjs.extend(relativetime);
 
@@ -45,6 +46,7 @@ export default function ChatHistory() {
 const Cell: FunctionComponent<Chat> = ({ chatId, messages, version }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const sidebarContext = useSidebarContext();
 
   return (
     <Button
@@ -52,7 +54,12 @@ const Cell: FunctionComponent<Chat> = ({ chatId, messages, version }) => {
       className={`flex gap-3 w-full py-6 text-sm justify-start ${
         pathname.includes(chatId.toString()) && "bg-gray-700"
       }`}
-      onClick={() => router.push(`/chat/${chatId}`)}
+      onClick={() => {
+        if (sidebarContext.isSidebarOpen) {
+          sidebarContext.setIsSidebarOpen(false);
+        }
+        router.push(`/chat/${chatId}`);
+      }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
