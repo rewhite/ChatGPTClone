@@ -129,8 +129,9 @@ export default function InputBar(props: {
       >
         <Input
           type="text"
-          placeholder="Send a message."
+          placeholder="Send a message..."
           value={text}
+          className="text-base text-slate-800"
           onChange={(e) => setText(e.target.value)}
         />
         <Button type="submit" disabled={!(text.trim().length > 0) || isLoading}>
