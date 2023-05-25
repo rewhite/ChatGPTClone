@@ -140,9 +140,9 @@ export default function InputBar(props: {
       </form>
 
       <div>
-        <p className="pt-2 text-center text-xs text-muted-foreground">
-          This is a replica of the ChatGPT website, powered by the ChatGPT API
-          and developed by{" "}
+        <p className="pt-2 text-center text-xs text-muted-foreground ">
+          This is a clone of the ChatGPT website, powered by the ChatGPT API and
+          developed by{" "}
           <Link
             href={"https://www.linkedin.com/in/hyunbangxr/"}
             target="_blank"

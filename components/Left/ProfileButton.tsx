@@ -70,7 +70,7 @@ export default function ProfileButton() {
             className="my-2 flex w-full justify-start gap-3 border-transparent py-6 text-sm font-normal"
           >
             <Avatar className="h-8 w-8">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src="/Sample.jpg" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
 

@@ -43,12 +43,12 @@ export default function ChatMessagePage(props: {
         <Avatar className="h-10 w-10 self-start">
           {props.type === MessageType.USER ? (
             <>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+              <AvatarImage src="/Sample.jpg" alt="user image" />
               <AvatarFallback>CN</AvatarFallback>
             </>
           ) : (
             <>
-              <AvatarImage src="https://github.com/shadcn.pngs" alt="@shadcn" />
+              <AvatarImage src="" alt="user image" />
               <AvatarFallback className="bg-teal-300">AI</AvatarFallback>
             </>
           )}

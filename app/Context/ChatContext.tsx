@@ -47,7 +47,7 @@ export const ChatContextProvider = ({
       : "Guest";
     const profilePic = !!localStorage.getItem("profilePic")
       ? localStorage.profilePic
-      : "https://github.com/shadcn.png";
+      : "/Sample.jpg";
     const chats: { [key: string]: Chat } = JSON.parse(
       localStorage.getItem("chats") || "{}"
     );
