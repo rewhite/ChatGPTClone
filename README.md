@@ -1,6 +1,6 @@
 # ChatGPT Website Clone
 
-Welcome to my Github repository! This project is a clone of the ChatGPT website, developed using Next.js. It serves as a testament to my journey into web development, where I've built a functional, visually appealing, and secure web application.
+This project is a clone of the ChatGPT website, developed using Next.js. It serves as a testament to my journey into web development, where I've built a functional, visually appealing, and secure web application.
 
 🌐 The live application can be viewed at https://chat-gpt-clone-wine.vercel.app/
 
